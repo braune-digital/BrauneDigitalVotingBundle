@@ -26,5 +26,6 @@
         "psr-4" : {
             "BrauneDigital\\VotingBundle\\" : ""
         }
-    }
+    },
+    "version": "0.1.0"
 }
