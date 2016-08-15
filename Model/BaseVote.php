@@ -1,7 +1,7 @@
 <?php
 /**
+ * Braune Digital GmbH
  * @author Patrick Rathje <pr@braune-digital.com>
- * @company Braune Digital GmbH
  * @date 15.08.16
  */
 

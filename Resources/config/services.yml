@@ -1,0 +1,7 @@
+parameters:
+    'bd_voting.validator.class': 'BrauneDigital\VotingBundle\Service\VoteValidator'
+    'bd_voting.validator.hash_algorithm': 'md5'
+services:
+    bd_voting.validator:
+        class: '%bd_voting.validator.class%'
+        arguments: ['%bd_voting.validator.hash_algorithm%']

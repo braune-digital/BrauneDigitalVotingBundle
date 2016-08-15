@@ -20,3 +20,6 @@ BrauneDigital\VotingBundle\Entity\BaseVote:
             length: 255
             nullable: true
     lifecycleCallbacks: {  }
+    indexes:
+        ip_fingerprint:
+            columns: ['ip', 'fingerprint']

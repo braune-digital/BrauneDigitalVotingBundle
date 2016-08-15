@@ -1,11 +1,11 @@
 <?php
+namespace BrauneDigital\VotingBundle\Entity;
 /**
- * @author Patrick Rathje <pr@braune-digital.com>
- * @company Braune Digital GmbH
- * @date 15.08.16
+ * Patrick Rathje <pr@braune-digital.com>
+ * Braune Digital GmbH
+ * 15.08.16
  */
 
-namespace BrauneDigital\VotingBundle\Entity;
 
 use BrauneDigital\VotingBundle\Model\BaseVote as BaseVoteModel;
 
