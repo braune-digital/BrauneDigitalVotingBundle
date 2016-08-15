@@ -1,0 +1,24 @@
+Application\BrauneDigital\VotingBundle\Entity\Vote:
+    type: entity
+    table: bd_voting_vote
+    inheritanceType: JOINED
+    discriminatorColumn:
+        name: discr
+        type: string
+        length: null
+        columnDefinition: null
+        fieldName: discr
+    discriminatorMap:
+        vote: Application\BrauneDigital\VotingBundle\Entity\Vote
+        #post: Application\BrauneDigital\VotingBundle\Entity\PostVote # for example
+    id:
+        id:
+            type: integer
+            scale: 0
+            length: null
+            unique: false
+            nullable: false
+            precision: 0
+            id: true
+            generator:
+                strategy: IDENTITY
