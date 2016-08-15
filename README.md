@@ -33,7 +33,7 @@ public function registerBundles()
     {
         $bundles = array(
           ...
-          new Application\BrauneDigital\VotingBundle\AppliactionBrauneDigitalVotingBundle(),
+          new Application\BrauneDigital\VotingBundle\ApplicationBrauneDigitalVotingBundle(),
           ...
         );
 ```
