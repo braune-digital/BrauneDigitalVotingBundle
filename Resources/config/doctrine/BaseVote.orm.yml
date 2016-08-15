@@ -1,0 +1,22 @@
+BrauneDigital\VotingBundle\Entity\BaseVote:
+    type: mappedSuperclass
+    fields:
+        date:
+            type: datetime
+            nullable: true
+        value:
+            type: integer
+            nullable: true
+        ip:
+            type: string
+            length: 255
+            nullable: true
+        fingerprint:
+            type: string
+            length: 255
+            nullable: true
+        comment:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }
