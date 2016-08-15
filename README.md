@@ -86,7 +86,8 @@ Application\BrauneDigital\VotingBundle\Entity\PostVote:
         post:
             targetEntity: 'AppBundle\Entity\Post'
             fetch: LAZY
-            mappedBy: votes
+            inversedBy: votes
+            cascade: ['remove']
 ```
 
 Part of File: AppBundle\Resources\config\doctrine\Post.orm.yml
