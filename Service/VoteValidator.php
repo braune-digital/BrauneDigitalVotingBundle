@@ -31,7 +31,7 @@ class VoteValidator
      * @param bool $strict fingerprint and ip have to match both
      * @return QueryBuilder
      */
-    public function extendQueryBuilder(QueryBuilder $qb, $alias, VoteLogdata $logdata, $strict = true) {
+    public function extendQueryBuilder(QueryBuilder $qb, $alias, VoteLogdata $logdata, $strict = true, $ipDate = null) {
         $exp = [];
         if ($logdata->getIp()) {
             $exp[] = $qb->expr()->eq($alias . '.ip', ':ip');
@@ -48,13 +48,22 @@ class VoteValidator
             } else {
                 $where = call_user_func_array([$qb->expr(), 'orX'], $exp);
             }
+
+            if ($logdata->getIp() && $ipDate) {
+                //parameter ip already set
+                $ipTimelimitExp = $qb->expr()->andX(
+                    $qb->expr()->eq($alias . '.ip', ':ip'),
+                    $qb->expr()->gte($alias . '.date', ':ipDate'));
+                $qb->setParameter('ipDate', $ipDate);
+                $where = $qb->expr()->orX($ipTimelimitExp, $where);
+            }
             $qb->andWhere($where);
         }
         return $qb;
     }
 
-    public function checkForVotes(QueryBuilder $qb, $alias, VoteLogdata $logdata, $strict = true) {
-        $qb = $this->extendQueryBuilder($qb, $alias, $logdata, $strict);
+    public function checkForVotes(QueryBuilder $qb, $alias, VoteLogdata $logdata, $strict = true, $ipDate = null) {
+        $qb = $this->extendQueryBuilder($qb, $alias, $logdata, $strict, $ipDate);
         return $qb->getQuery()->getResult();
     }
 
